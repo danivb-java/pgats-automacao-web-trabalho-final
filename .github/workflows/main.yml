@@ -40,11 +40,3 @@ jobs:
             cypress/screenshots
             cypress/videos
           retention-days: 15
-
-      - name: Upload Mochawesome Report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: mochawesome-report
-          path: cypress/reports/
-          retention-days: 15
