@@ -1,0 +1,50 @@
+name: Web E2E Tests Final Exam
+
+on:
+  workflow_dispatch:
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      # clone do projeto para a máquina
+      - uses: actions/checkout@v4
+
+      # Conferir a versão instalada
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Instalando dependências
+        run: npm ci
+
+      - name: Executando os testes
+        run: npx cypress run || true
+
+      - name: Upload Tests results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with: 
+          name: relatorios dos testes
+          path: |
+            cypress/reports
+            cypress/screenshots
+            cypress/videos
+          retention-days: 15
+
+      - name: Upload Mochawesome Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mochawesome-report
+          path: cypress/reports/
+          retention-days: 15

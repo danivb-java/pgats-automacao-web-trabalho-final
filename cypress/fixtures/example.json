@@ -1,0 +1,16 @@
+{
+  "name": "QA Tester",
+  "email": "hello@cypress.io",
+  "subject": "Suppot",
+  "message": "Testing using fixtures and opload",
+  "body": "Fixtures are a great way to mock data for responses to routes",
+  "user": "qa-tester-1759532019098@test.com",
+  "password": "123",
+  "cardData": {
+    "name": "QA Tester Automation",
+    "number": "4120456512328790",
+    "cvc": "123",
+    "expMonth": "12",
+    "expYear": "2032"
+  }
+}
