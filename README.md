@@ -66,7 +66,7 @@ Este projeto foi desenvolvido como Trabalho Final da disciplina de Automação W
  - Integração com ferramentas modernas (Faker.js, Mochawesome)
  - Pipeline CI/CD com GitHub Actions
  - Boas práticas de desenvolvimento e testing
- - 
+   
 # Licença
 MIT License - Este projeto foi desenvolvido exclusivamente para fins educacionais como Trabalho Final do curso PGATS.
 
